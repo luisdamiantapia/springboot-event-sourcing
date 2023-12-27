@@ -2,7 +2,7 @@
 
 ## Descripción
 
-¡Bienvenido/a a nuestra plataforma robusta con una arquitectura basada en Event Sourcing! Esta aplicación está diseñada para ofrecer una solución robusta que aprovecha tecnologías avanzadas como Spring Boot, Apache Kafka y ELK (Elasticsearch, Logstash, Kibana). La arquitectura de Event Sourcing permite un seguimiento preciso y una comprensión profunda de los eventos que ocurren en la plataforma.
+Esta aplicación está diseñada para ofrecer una solución robusta que aprovecha tecnologías avanzadas como Spring Boot, Apache Kafka y ELK (Elasticsearch, Logstash, Kibana). La arquitectura de Event Sourcing permite un seguimiento preciso y una comprensión profunda de los eventos que ocurren en la plataforma.
 
 ## Funcionalidades Principales
 
@@ -12,7 +12,7 @@ La aplicación utiliza Spring Boot, un marco de desarrollo de Java que simplific
 
 ### 2. Apache Kafka
 
-Hemos incorporado Apache Kafka como sistema de mensajería para gestionar eventos de manera eficiente. Kafka facilita la comunicación entre los diversos componentes de la aplicación, permitiendo la implementación efectiva de Event Sourcing.
+Se incorporó Apache Kafka como sistema de mensajería para gestionar eventos de manera eficiente. Kafka facilita la comunicación entre los diversos componentes de la aplicación, permitiendo la implementación efectiva de Event Sourcing.
 
 ### 3. ELK (Elasticsearch, Logstash, Kibana)
 
@@ -30,7 +30,7 @@ La plataforma sigue el paradigma de Event Sourcing, donde cada acción o cambio 
 
 ## Configuración
 
-Antes de ejecutar la aplicación, asegúrese de configurar adecuadamente los aspectos mencionados en la sección anterior. Además, revise y ajuste la configuración relacionada con la arquitectura de Event Sourcing en los archivos correspondientes.
+Antes de ejecutar la aplicación, asegúrate de configurar adecuadamente los aspectos mencionados en la sección anterior. Además, revisa y ajusta la configuración relacionada con la arquitectura de Event Sourcing en los archivos correspondientes.
 
 ## Ejecución
 
