@@ -1,0 +1,15 @@
+version: '3.5'
+
+services:
+
+  stream-app-consumer:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: stream-app-consumer
+    networks:
+      - wiki-stream-network
+
+networks:
+  wiki-stream-network:
+    external: true
