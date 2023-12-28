@@ -3,13 +3,12 @@
 help: ## Show this help message
 	@echo 'usage: make [target]'
 	@echo
-	@echo 'targets:'
+	@echo 'Targets:'
 	@egrep '^(.+)\:\ ##\ (.+)' ${MAKEFILE_LIST} | column -t -c 2 -s ':#'
 
 
 network: ## Create wiki-stream-network network
 	docker network create wiki-stream-network || true
-
 
 start: ## Start the containers
 	$(MAKE) start_infrastructure
@@ -60,6 +59,7 @@ stop_db: ## Stop Postgres container
 
 start_application: ## Start application containers
 	$(MAKE) network
+	$(MAKE) build
 	$(MAKE) start_producer
 	$(MAKE) start_consumer
 
@@ -83,16 +83,28 @@ stop_consumer: ## Stop consumer container
 
 ######## Build images from Dockerfile for projects ########
 
-build: ## Builds all the containers
+build: ## Build all the containers
 	$(MAKE) network
 	$(MAKE) build_producer
 	$(MAKE) build_consumer
 
-build_producer: ## Build producer image
+build_producer:
 	$(MAKE) network
+	$(MAKE) package
 	docker-compose -f kafka-producer-wikimedia/docker-compose.yml build --force-rm
-	
-build_consumer: ## Build consumer image
+
+package:
+	$(MAKE) package_consumer
+	$(MAKE) package_producer
+
+package_consumer:
+	mvn clean package -DskipTests -f ./kafka-consumer-wikimedia/pom.xml
+
+package_producer:
+	mvn clean package -DskipTests -f ./kafka-producer-wikimedia/pom.xml
+
+
+build_consumer:
 	$(MAKE) network
 	docker-compose -f kafka-consumer-wikimedia/docker-compose.yml build --force-rm
 
