@@ -12,6 +12,7 @@ network: ## Create wiki-stream-network network
 
 start: ## Start the containers
 	$(MAKE) start_infrastructure
+	timeout  60
 	$(MAKE) start_application
 	
 
@@ -43,7 +44,7 @@ start_db: ## Start Postgres container
 	$(MAKE) network
 	docker-compose -f infrastructure/db/docker-compose.yml up -d
 
-stop_insfrastructure: ## Stop infrastructure containers
+stop_infrastructure: ## Stop infrastructure containers
 	$(MAKE) stop_kafka
 	$(MAKE) stop_db
 
